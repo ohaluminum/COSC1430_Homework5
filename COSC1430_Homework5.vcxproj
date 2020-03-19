@@ -138,15 +138,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\Desktop\Homework5\antique.h" />
-    <ClInclude Include="..\..\..\..\..\Desktop\Homework5\merchant.h" />
-    <ClInclude Include="..\..\..\..\..\Desktop\Homework5\MerchantGuild.h" />
+    <ClInclude Include="antique.h" />
+    <ClInclude Include="merchant.h" />
+    <ClInclude Include="MerchantGuild.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\Desktop\Homework5\antique.cpp" />
-    <ClCompile Include="..\..\..\..\..\Desktop\Homework5\main.cpp" />
-    <ClCompile Include="..\..\..\..\..\Desktop\Homework5\merchant.cpp" />
-    <ClCompile Include="..\..\..\..\..\Desktop\Homework5\MerchantGuild.cpp" />
+    <ClCompile Include="antique.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="merchant.cpp" />
+    <ClCompile Include="MerchantGuild.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

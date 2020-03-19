@@ -15,27 +15,27 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\Desktop\Homework5\antique.h">
+    <ClInclude Include="antique.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\Homework5\merchant.h">
+    <ClInclude Include="merchant.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\Homework5\MerchantGuild.h">
+    <ClInclude Include="MerchantGuild.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\Desktop\Homework5\antique.cpp">
+    <ClCompile Include="antique.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Desktop\Homework5\main.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Desktop\Homework5\merchant.cpp">
+    <ClCompile Include="merchant.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Desktop\Homework5\MerchantGuild.cpp">
+    <ClCompile Include="MerchantGuild.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
