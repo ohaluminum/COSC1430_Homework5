@@ -10,16 +10,15 @@ using namespace std;
 
 class Merchant {
 private:
-    /*
-      put the dynamic arrays here
-    */
-	 int numAnt;
+	Antique* antiqueList;
+	int* numAnt;
     float revenue;
 public:
 	Merchant();
 	Merchant(float r);
 	~Merchant();
 	Merchant(const Merchant &copy);
+	Antique operator+(const Antique& other)
 	/*
 	   == operator overload here
 	   addAntique function here
