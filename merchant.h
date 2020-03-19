@@ -13,12 +13,15 @@ private:
 	Antique* antiqueList;
 	int* numAnt;
     float revenue;
+	int size;
 public:
 	Merchant();
 	Merchant(float r);
 	~Merchant();
 	Merchant(const Merchant &copy);
-	Antique operator+(const Antique& other)
+	Antique operator+(const Antique& other);
+
+	void addAntique(Antique newAnt, int newQuan);
 	/*
 	   == operator overload here
 	   addAntique function here
