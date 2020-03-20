@@ -72,7 +72,7 @@ void MerchantGuild::addMember(Merchant newM)
     }
     else
     {
-        members[numMem - 1] = newM;
+        members[numMem] = newM;
         numMem++;
     }
 }
