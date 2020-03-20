@@ -2,6 +2,7 @@
 #include "antique.h"
 #include <iostream>
 #include <fstream>
+#include <cmath>
 
 using namespace std;
 
@@ -10,8 +11,8 @@ using namespace std;
 
 class Merchant {
 private:
-	Antique* antiqueList;
-	int* numAnt;
+	Antique *antiqueList;
+	int *numAnt;
     float revenue;
 	int size;
 public:
@@ -19,7 +20,9 @@ public:
 	Merchant(float r);
 	~Merchant();
 	Merchant(const Merchant &copy);
-	Antique operator+(const Antique& other);
+	Antique operator=(const Antique &other);
+	bool operator==(const Merchant &other);
+
 
 	void addAntique(Antique newAnt, int newQuan);
 	/*

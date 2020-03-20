@@ -1,4 +1,5 @@
 #include "merchant.h"
+#include "antique.h"
 
 using namespace std;
 
@@ -41,7 +42,43 @@ Merchant::Merchant(const Merchant &copy)
 	}
 }
 
-//==operator overload here
+/*
+ *Overload operator (==) here: 
+ *One merchant is equal to another if:
+ *Their revenue is equal
+ *They have the same number of antiques
+ *The antiques are the same and in the same order
+ *They have the same quantity of each antique
+ */
+bool Merchant::operator==(const Merchant &other)
+{
+	bool isSame = false;
+
+	if (fabs(revenue - other.revenue) < 0.0001)
+	{
+		if (size == other.size)
+		{
+			for (int i = 0; i < size; i++)
+			{
+				if ((antiqueList[i].getName().compare(other.antiqueList[i].getName()) != 0) || (antiqueList[i].getPrice() != other.antiqueList[i].getPrice()) || (numAnt[i] != other.numAnt[i]))
+				{
+					isSame = false;
+					break;
+				}
+			}
+			
+			isSame = true;
+		}
+	}
+
+	return isSame;
+}
+
+/*
+ *Overload the assignment operator (=) here: this will work almost exactly like the copy constructor 
+ *Except, there may already be allocated memory in the pointers you must delete first
+ */
+
 
 /*
  *Add antique here: this is a void function that takes as arguments an antique object and an int quantity of that antique. 
