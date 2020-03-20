@@ -49,7 +49,6 @@ bool Antique::operator==(const Antique &other)
 	{
 		isSame = true;
 	}
-
 	return isSame;
 }
 

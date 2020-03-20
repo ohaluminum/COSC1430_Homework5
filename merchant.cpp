@@ -30,15 +30,39 @@ Merchant::~Merchant()
 //Copy constructor here: the copy constructor will perform a deep copy
 Merchant::Merchant(const Merchant &copy)
 {
-	int item = copy.size;
+	size = copy.size;
+	revenue = copy.revenue;
 
-	antiqueList = new Antique[item];
-	numAnt = new int[item];
-	for (int i = 0; i < item; i++)
+	antiqueList = new Antique[size];
+	numAnt = new int[size];
+	for (int i = 0; i < size; i++)
 	{
 		antiqueList[i] = copy.antiqueList[i];
 		numAnt[i] = copy.numAnt[i];
 	}
+}
+
+/*
+ *Overload the assignment operator (=) here: this will work almost exactly like the copy constructor
+ *Except, there may already be allocated memory in the pointers you must delete first
+ */
+Merchant Merchant::operator=(const Merchant &copy)
+{
+	size = copy.size;
+	revenue = copy.revenue;
+
+	if (this != &copy) {                            // 1. Don't self-assign
+		delete[] antiqueList;                       // 2. Delete old memory
+		delete[] numAnt;
+		antiqueList = new Antique[size];            // 3. Allocate new memory
+		numAnt = new int[size];
+		for (int i = 0; i < size; i++)
+		{
+			antiqueList[i] = copy.antiqueList[i];
+			numAnt[i] = copy.numAnt[i];
+		}
+	}
+	return *this;
 }
 
 /*
@@ -74,12 +98,6 @@ bool Merchant::operator==(const Merchant &other)
 		return false;
 	}
 }
-
-/*
- *Overload the assignment operator (=) here: this will work almost exactly like the copy constructor 
- *Except, there may already be allocated memory in the pointers you must delete first
- */
-
 
 /*
  *Add antique here: this is a void function that takes as arguments an antique object and an int quantity of that antique. 

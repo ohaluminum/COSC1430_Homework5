@@ -20,15 +20,9 @@ public:
 	Merchant(float r);
 	~Merchant();
 	Merchant(const Merchant &copy);
-	Antique operator=(const Antique &other);
+	Merchant operator=(const Merchant &copy);
 	bool operator==(const Merchant &other);
-
-
 	void addAntique(Antique newAnt, int newQuan);
-	/*
-	   == operator overload here
-	   addAntique function here
-	*/
 };
 
 
