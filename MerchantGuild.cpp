@@ -77,7 +77,8 @@ void MerchantGuild::addMember(Merchant newM)
     }
 }
 
+//getMembers: returns the pointer to the dynamic array
 Merchant* MerchantGuild::getMembers()
 {
-
+    return members;
 }
