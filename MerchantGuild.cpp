@@ -3,7 +3,7 @@
 using namespace std;
 
 /*
- *Constructor with parameter size (with default value 10)
+ *Constructor with parameter size (with default value 10):
  *Sets guildSize to size, allocates members array and sets numMem to 0. 
  *If size < 1, use default value 10
  */
@@ -19,9 +19,17 @@ MerchantGuild::MerchantGuild(int size = 10)
     numMem = 0;
 }
 
-MerchantGuild::MerchantGuild(const MerchantGuild& copy)
+//Copy constructor: perform a deep copy
+MerchantGuild::MerchantGuild(const MerchantGuild &copy)
 {
+    guildSize = copy.guildSize;
+    numMem = copy.numMem;
 
+    members = new Merchant[guildSize];
+    for (int i = 0; i < guildSize; i++)
+    {
+        members[i] = copy.members[i];
+    }
 }
 
 //Destructor: free the allocated memory
