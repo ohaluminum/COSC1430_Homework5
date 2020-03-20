@@ -1,5 +1,4 @@
 #include "merchant.h"
-#include "antique.h"
 
 using namespace std;
 
@@ -52,8 +51,6 @@ Merchant::Merchant(const Merchant &copy)
  */
 bool Merchant::operator==(const Merchant &other)
 {
-	bool isSame = false;
-
 	if (fabs(revenue - other.revenue) < 0.0001)
 	{
 		if (size == other.size)
@@ -62,16 +59,20 @@ bool Merchant::operator==(const Merchant &other)
 			{
 				if ((antiqueList[i].getName().compare(other.antiqueList[i].getName()) != 0) || (antiqueList[i].getPrice() != other.antiqueList[i].getPrice()) || (numAnt[i] != other.numAnt[i]))
 				{
-					isSame = false;
-					break;
+					return false;
 				}
 			}
-			
-			isSame = true;
+			return true;
+		}
+		else
+		{
+			return false;
 		}
 	}
-
-	return isSame;
+	else
+	{
+		return false;
+	}
 }
 
 /*
