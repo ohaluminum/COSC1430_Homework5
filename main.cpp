@@ -6,9 +6,9 @@ using namespace std;
 
 int main() {
 
-   cout << "KEY: " << "True is: " << true << "  False is: " << false << endl << endl;
+    cout << "KEY: " << "True is: " << true << "  False is: " << false << endl << endl;
    
-   // antique tests
+    //antique tests
 	Antique a1, a2;
 
 	a1.setName("fork");
@@ -22,7 +22,7 @@ int main() {
 	cout << bool(a1 == a2) << " : Ans=0" << endl;
 	cout << bool(a1 == a1) << " : Ans=1" << endl;
 	
-	// merchant tests
+	//merchant tests
 	Merchant m1(1.2), m2(2.5);
 	cout << "merchant test" << endl;
 	m1.addAntique(a1, 2);
@@ -49,5 +49,5 @@ int main() {
 	tmp = mg1.getMembers();
 	cout << bool(tmp[0] == m1 && tmp[1] == m2) << " : Ans=1" << endl;
 
-   return 0;
+    return 0;
 }

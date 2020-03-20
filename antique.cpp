@@ -61,7 +61,7 @@ Antique Antique::operator+(const Antique &other)
 	//Creating a string stream
 	ostringstream outSS;
 
-	outSS << name << " + " << other.name;
+	outSS << name << " and " << other.name;
 	antiqueTotal.name = outSS.str();
 
 	return antiqueTotal;

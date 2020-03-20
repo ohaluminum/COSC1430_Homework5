@@ -7,7 +7,7 @@ using namespace std;
  *Sets guildSize to size, allocates members array and sets numMem to 0. 
  *If size < 1, use default value 10
  */
-MerchantGuild::MerchantGuild(int size = 10)
+MerchantGuild::MerchantGuild(int size)
 {
     if (size < 1)
     {
