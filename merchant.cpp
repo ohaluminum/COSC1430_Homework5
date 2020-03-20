@@ -100,11 +100,38 @@ bool Merchant::operator==(const Merchant &other)
 }
 
 /*
- *Add antique here: this is a void function that takes as arguments an antique object and an int quantity of that antique. 
+ *AddAntique here: this is a void function that takes as arguments an antique object and an int quantity of that antique. 
  *It will add that antique and its quantity to the end of the respective dynamic arrays. 
  *The arrays will be 1 size larger after the addition.
  */
 void Merchant::addAntique(Antique newAnt, int newQuan)
 {
+	Antique *tempAnt = new Antique[size];
+	int *tempQuan = new int[size];
 
+	for (int i = 0; i < size; i++)
+	{
+		tempAnt[i] = antiqueList[i];
+		tempQuan[i] = numAnt[i];
+	}
+
+	delete[] antiqueList;
+	delete[] numAnt;
+
+	size++;
+
+	antiqueList = new Antique[size];
+	numAnt = new int[size];
+
+	for (int i = 0; i < size - 1; i++)
+	{
+		antiqueList[i] = tempAnt[i];
+		numAnt[i] = tempQuan[i];
+	}
+
+	antiqueList[size - 1] = newAnt;
+	numAnt[size - 1] = newQuan;
+
+	delete[] tempAnt;
+	delete[] tempQuan;
 }

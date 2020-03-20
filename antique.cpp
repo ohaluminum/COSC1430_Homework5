@@ -63,4 +63,6 @@ Antique Antique::operator+(const Antique &other)
 
 	outSS << name << " + " << other.name;
 	antiqueTotal.name = outSS.str();
+
+	return antiqueTotal;
 }
