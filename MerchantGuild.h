@@ -8,14 +8,14 @@ using namespace std;
 class MerchantGuild
 {
 public:
-	MerchantGuild();
+	MerchantGuild(int size = 10);
 	MerchantGuild(const MerchantGuild &copy);
 	~MerchantGuild();
 	MerchantGuild& operator=(const MerchantGuild &other);
 	void addMember(Merchant newM);
 	Merchant* getMembers();
 private:
-	Merchant* members;
+	Merchant *members;
 	int guildSize;
 	int numMem;
 };

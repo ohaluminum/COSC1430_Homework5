@@ -25,6 +25,9 @@ Merchant::~Merchant()
 {
 	delete[] antiqueList;
 	delete[] numAnt;
+
+	antiqueList = nullptr;
+	numAnt = nullptr;
 }
 
 //Copy constructor here: the copy constructor will perform a deep copy
@@ -106,32 +109,44 @@ bool Merchant::operator==(const Merchant &other)
  */
 void Merchant::addAntique(Antique newAnt, int newQuan)
 {
-	Antique *tempAnt = new Antique[size];
-	int *tempQuan = new int[size];
-
-	for (int i = 0; i < size; i++)
+	if (size == 0)
 	{
-		tempAnt[i] = antiqueList[i];
-		tempQuan[i] = numAnt[i];
+		size++;
+		antiqueList = new Antique[size];
+		numAnt = new int[size];
+
+		antiqueList[0] = newAnt;
+		numAnt[0] = newQuan;
 	}
-
-	delete[] antiqueList;
-	delete[] numAnt;
-
-	size++;
-
-	antiqueList = new Antique[size];
-	numAnt = new int[size];
-
-	for (int i = 0; i < size - 1; i++)
+	else
 	{
-		antiqueList[i] = tempAnt[i];
-		numAnt[i] = tempQuan[i];
-	}
+		Antique *tempAnt = new Antique[size];
+		int *tempQuan = new int[size];
 
-	antiqueList[size - 1] = newAnt;
-	numAnt[size - 1] = newQuan;
+		for (int i = 0; i < size; i++)
+		{
+			tempAnt[i] = antiqueList[i];
+			tempQuan[i] = numAnt[i];
+		}
 
-	delete[] tempAnt;
-	delete[] tempQuan;
+		delete[] antiqueList;
+		delete[] numAnt;
+
+		size++;
+
+		antiqueList = new Antique[size];
+		numAnt = new int[size];
+
+		for (int i = 0; i < size - 1; i++)
+		{
+			antiqueList[i] = tempAnt[i];
+			numAnt[i] = tempQuan[i];
+		}
+
+		antiqueList[size - 1] = newAnt;
+		numAnt[size - 1] = newQuan;
+
+		delete[] tempAnt;
+		delete[] tempQuan;
+	}	
 }
