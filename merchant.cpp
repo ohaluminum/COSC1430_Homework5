@@ -120,10 +120,11 @@ void Merchant::addAntique(Antique newAnt, int newQuan)
 	}
 	else
 	{
+		size++;
 		Antique *tempAnt = new Antique[size];
 		int *tempQuan = new int[size];
 
-		for (int i = 0; i < size; i++)
+		for (int i = 0; i < size - 1; i++)
 		{
 			tempAnt[i] = antiqueList[i];
 			tempQuan[i] = numAnt[i];
@@ -131,8 +132,6 @@ void Merchant::addAntique(Antique newAnt, int newQuan)
 
 		delete[] antiqueList;
 		delete[] numAnt;
-
-		size++;
 
 		antiqueList = new Antique[size];
 		numAnt = new int[size];
