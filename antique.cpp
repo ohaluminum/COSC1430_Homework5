@@ -40,7 +40,7 @@ Antique::Antique()
 	price = 0;
 }
 
-bool Antique::operator==(const Antique &other)
+bool Antique::operator==(const Antique& other)
 {
 	bool isSame = false;
 
@@ -52,7 +52,7 @@ bool Antique::operator==(const Antique &other)
 	return isSame;
 }
 
-Antique Antique::operator+(const Antique &other)
+Antique Antique::operator+(const Antique& other)
 {
 	Antique antiqueTotal;
 

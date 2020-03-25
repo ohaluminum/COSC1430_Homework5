@@ -14,8 +14,8 @@ private:
     float price;
 public:
     Antique();
-	bool operator==(const Antique &other);
-	Antique operator+(const Antique &other);
+    bool operator==(const Antique& other);
+	Antique operator+(const Antique& other);
     string toString();
     void setName(string NAME);
     void setPrice(float PRICE);

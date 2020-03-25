@@ -23,41 +23,33 @@ Merchant::Merchant(float r)
 //Destructor here: the destructor will free all allocated memory (delete pointers and delete[ ] dynamic arrays)
 Merchant::~Merchant()
 {
-	delete[] antiqueList;
-	delete[] numAnt;
-
-	antiqueList = nullptr;
-	numAnt = nullptr;
-}
-
-//Copy constructor here: the copy constructor will perform a deep copy
-Merchant::Merchant(const Merchant &copy)
-{
-	size = copy.size;
-	revenue = copy.revenue;
-
-	antiqueList = new Antique[size];
-	numAnt = new int[size];
-	for (int i = 0; i < size; i++)
+	if (antiqueList != nullptr)
 	{
-		antiqueList[i] = copy.antiqueList[i];
-		numAnt[i] = copy.numAnt[i];
+		delete[] antiqueList;
+		antiqueList = nullptr;
+	}
+	if (numAnt != nullptr)
+	{
+		delete[] numAnt;
+		numAnt = nullptr;
 	}
 }
+	
 
-/*
- *Overload the assignment operator (=) here: this will work almost exactly like the copy constructor
- *Except, there may already be allocated memory in the pointers you must delete first
- */
-Merchant Merchant::operator=(const Merchant &copy)
+//Copy constructor here: the copy constructor will perform a deep copy
+Merchant::Merchant(const Merchant& copy)
 {
 	size = copy.size;
 	revenue = copy.revenue;
 
-	if (this != &copy) {                            // 1. Don't self-assign
-		delete[] antiqueList;                       // 2. Delete old memory
-		delete[] numAnt;
-		antiqueList = new Antique[size];            // 3. Allocate new memory
+	if (size == 0)
+	{
+		antiqueList = nullptr;
+		numAnt = nullptr;
+	}
+	else
+	{
+		antiqueList = new Antique[size];
 		numAnt = new int[size];
 		for (int i = 0; i < size; i++)
 		{
@@ -65,7 +57,38 @@ Merchant Merchant::operator=(const Merchant &copy)
 			numAnt[i] = copy.numAnt[i];
 		}
 	}
-	return *this;
+}
+
+/*
+ *Overload the assignment operator (=) here: this will work almost exactly like the copy constructor
+ *Except, there may already be allocated memory in the pointers you must delete first
+ */
+void Merchant::operator=(const Merchant& copy)
+{
+	if (this != &copy) 
+	{                                               // 1. Don't self-assign
+		delete[] antiqueList;                       // 2. Delete old memory
+		delete[] numAnt;
+
+		size = copy.size;
+		revenue = copy.revenue;
+
+		if (size == 0)                              // 3. Allocate new memory
+		{
+			antiqueList = nullptr;
+			numAnt = nullptr;
+		}
+		else
+		{
+			antiqueList = new Antique[size];
+			numAnt = new int[size];
+			for (int i = 0; i < size; i++)
+			{
+				antiqueList[i] = copy.antiqueList[i];
+				numAnt[i] = copy.numAnt[i];
+			}
+		}
+	}
 }
 
 /*
@@ -76,7 +99,7 @@ Merchant Merchant::operator=(const Merchant &copy)
  *The antiques are the same and in the same order
  *They have the same quantity of each antique
  */
-bool Merchant::operator==(const Merchant &other)
+bool Merchant::operator==(const Merchant& other)
 {
 	if (fabs(revenue - other.revenue) < 0.0001)
 	{

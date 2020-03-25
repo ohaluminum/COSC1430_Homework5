@@ -11,9 +11,9 @@ class MerchantGuild
 {
 public:
 	MerchantGuild(int size = 10);
-	MerchantGuild(const MerchantGuild &copy);
+	MerchantGuild(const MerchantGuild& copy);
 	~MerchantGuild();
-	MerchantGuild& operator=(const MerchantGuild &other);
+	MerchantGuild& operator=(const MerchantGuild& other);
 	void addMember(Merchant newM);
 	Merchant* getMembers();
 private:
